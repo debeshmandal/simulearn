@@ -40,6 +40,9 @@ def get_model(data=None):
     # back-propagation
     model.add(tf.keras.layers.Dropout(0.2))
 
+    # EXPERIMENTAL - additional layer
+    model.add(tf.keras.layers.Dropout(0.4))
+
     # Add output layer, activated using softmax
     model.add(tf.keras.layers.Dense(
         units=10, # number of classes in the dataset (i.e 0-9)
@@ -57,7 +60,7 @@ def get_model(data=None):
     model.summary()
 
     # train the model
-    model.fit(X_train, y_train, epochs=5)
+    model.fit(X_train, y_train, epochs=10)
 
     return model
 
