@@ -1,13 +1,27 @@
+#/usr/bin/env python
 """
-Code for building Artificial Neural Network
-
-https://colab.research.google.com/drive/17jqM6EqCaDENJTcUvAuo6DOf3IKYC571
+Main script for creating an evaluating an artificial neural network.
 """
-import numpy as np
 import tensorflow as tf
-import datetime
+import numpy as np
+from model import get_model
+from preprocessing import get_data
 
-# import data if written to file, else take the objects from the
-# preprocessing script
+def main():
+    # import model and data
+    X_train, X_test, y_train, y_test = get_data()
+    model = get_model(data=(X_train, y_train))
+    
+    # train the model
+    model.fit(X_train, y_train, epochs=5)
 
+    # evaluate it
+    test_lost, test_accuracy = model.evaluate(X_test, y_test)
+    print(f"Test accuracy: {test_accuracy:.2f}")
+
+    return model
+
+if __name__ == '__main__':
+    _ = main()
+    del _
 
