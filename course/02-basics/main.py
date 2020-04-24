@@ -1,3 +1,8 @@
+"""
+Script of examples taken from Udemy Tensorflow 2.0 course
+
+https://colab.research.google.com/drive/1CQmEJihmMrTNfAiMO9QbWQdY4R7gygDo
+"""
 import tensorflow as tf
 import numpy as np
 
@@ -7,8 +12,8 @@ tensor = tf.constant([
     [3, 4]
 ])
 
-print(f'Shape: {tensor.shape}')
-print(f'\nNumpy Array:\n{tensor.numpy()}')
+print(f'Shape: {tensor.shape}\n')
+print(f'Numpy Array:\n{tensor.numpy()}\n')
 
 # variables are rank-N tensors initialised using tf.Variable()
 variable = tf.Variable([
