@@ -11,9 +11,6 @@ def main():
     # import model and data
     X_train, X_test, y_train, y_test = get_data()
     model = get_model(data=(X_train, y_train))
-    
-    # train the model
-    model.fit(X_train, y_train, epochs=5)
 
     # evaluate it
     test_lost, test_accuracy = model.evaluate(X_test, y_test)
