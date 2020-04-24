@@ -56,6 +56,9 @@ def get_model(data=None):
     # get a summary
     model.summary()
 
+    # train the model
+    model.fit(X_train, y_train, epochs=5)
+
     return model
 
 if __name__ == '__main__':
