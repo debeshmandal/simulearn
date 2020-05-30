@@ -10,6 +10,6 @@ This section contains the following items used on the `tensorflow.keras.datasets
 Usage:
 
     conda create -n ANN python=3.7
-    conda install numpy pandas tensorflow
     conda activate ANN
+    conda install numpy pandas tensorflow
     python main.py
