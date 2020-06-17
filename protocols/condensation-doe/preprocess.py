@@ -22,12 +22,15 @@ def prepare(df : pd.DataFrame) -> pd.DataFrame:
     return output
 
 def import_data(fname : str) -> Tuple[pd.DataFrame]:
-    data = prepare(pd.read_csv(fname, index_col=0))
-    train = data.sample(frac=0.8,random_state=0)
+    data = pd.read_csv(fname, index_col=0).reset_index(drop=True)
+    train = data.sample(frac=0.8,random_state=1)
     test = data.drop(train.index)
 
     X_train, y_train = split(train)
     X_test, y_test = split(test)
+
+    X_train, X_test = (prepare(X_train), prepare(X_test))
+    print(f'{X_train} (train),\n {X_test} (test)')
 
     return X_train, y_train, X_test, y_test
 
